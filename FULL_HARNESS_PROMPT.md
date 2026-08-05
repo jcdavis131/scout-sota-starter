@@ -1,5 +1,5 @@
-# Hatch SOTA Harness — Scout v3.3 — Full Setup Prompt
-*Copy/paste this entire block into your teammate's Hatch to make them SOTA like Cameron's.*
+# Scout SOTA Harness — v3.3 — Full Setup Prompt
+*Copy/paste this entire block into your teammate's agent runtime to make them SOTA like Cameron's.*
 
 ---
 
@@ -49,12 +49,12 @@ bundles/
 ```
 
 **L0-L4 Architecture:**
-- L0 scout-prime: Receives intent → OODA Observe → router-0 (moma_lite_classifier 384-d Qdrant/all-MiniLM-L6-v2-onnx centroids softmax) → delegates
+- L0 scout-prime: Receives intent → OODA Observe → router-0 (moma_lite_classifier 384-d centroids softmax) → delegates
 - L1 strategist: Diagnoses stuck shape → reads `lateral.md` → picks ONE lateral technique → runs inline with honesty mechanics (show what you abandoned)
 - L2 planner: Builds DAG 3-8 nodes, tags side-effects, max 4 concurrent (13 only epic)
 - L2 deep-researcher: 5-7 sources, contradiction matrix if needed
-- L3 executors: Each node does Observer→Orient→Decide→Act, pacing filter :13 (prevents Hatch flood)
-- L4 critic: 6 eval hooks, budget 3, early-exit Δ<0.3, threshold 8.0, suggestibility guard, MoMA 5 tiers (deterministic/llm/deep/action/epic)
+- L3 executors: Each node does Observer→Orient→Decide→Act, pacing filter :13 (prevents shared-bus flood)
+- L4 critic: 6 eval hooks, budget 3, early-exit Δ<0.3, threshold 8.0, suggestibility guard, 5 tiers (deterministic/llm/deep/action/epic)
 - checkpoint-manager: timeline.jsonl with nodeId/agentId/attempt/latency/tokens/status — pause/resume days later
 - operator: 02:13 UTC self-improvement nightly + 30m heartbeat with :13 pacing
 
@@ -62,13 +62,13 @@ bundles/
 - 34 nodes / 41 edges memory_graph (you build yours, mine is seed)
 - Nodes are People/Orgs/Tasks/Decisions, edges are typed: WORKED_WITH, AUTHORED, EMPLOYED_BY, SAME_AS
 - Store in `~/workspace/bundles/memory/contacts_harness/` (JSONL: nodes, edges, docs, cache)
-- ACNE v0.2.1 adapter: 8 Hatch tools native, 6 Claude native, 10 LangChain, 6 Hermes, 6 MyClaw, 4 CrewAI, 6 OpenAI — all point at same folder so triggers learned once work everywhere
-- Token-cache: 5 layers (doc dedup, embedding cache, extraction cache, GraphRAG query cache, compressed packs). Tiny 81-87% smaller than full. 71.5× fewer tokens vs re-reading raw. heuristic `len//4` = `$0.015/1k`
+- ACNE v0.2.1 adapter: 8 runtime tools native, 6 Claude native, 10 LangChain, 6 Hermes, 6 MyClaw, 4 CrewAI, 6 OpenAI — all point at same folder so triggers learned once work everywhere
+- Token-cache: 5 layers (doc dedup, embedding cache, extraction cache, GraphRAG query cache, compressed packs). Tiny 81-87% smaller than full. 71.5× fewer tokens vs re-reading raw.
 
 **MoMA Tiers + Dashboard v3.3:**
 - Deterministic (regex, grep), LLM (small), Deep (researcher), Action (tool), Epic (swarm 3-5 or 13)
-- Dashboard metrics: OODA-Agentic-MoMA-Graph-Checkpoint — you show it on your system map
-- Verification economics: budget 3 / threshold 8.0 / early-exit 0.3 — stop when Δ<0.3
+- Dashboard metrics: OODA-Agentic-MoMA-Graph-Checkpoint
+- Verification economics: budget 3 / threshold 8.0 / early-exit 0.3
 
 **Recovery Ladder (never skip):**
 1. retry 2. patch 3. replan 4. escalate to user with receipts
@@ -96,33 +96,27 @@ for s in lateral analogy concept-fan inversion provocation random-stimulus scamp
   curl -fsSL https://raw.githubusercontent.com/danium/lateral-thinking/main/skills/$s/SKILL.md -o ~/workspace/bundles/skills/$s.md
 done
 
-# 3) Manifest seed — copy Cameron's latest:
-curl -fsSL https://raw.githubusercontent.com/jcdavis131/arxiviq/main/bundles-template/manifest.json -o ~/workspace/bundles/manifest.json || echo '{"packs_count":11,"agents":13}'
+# 3) Manifest seed
+curl -fsSL https://raw.githubusercontent.com/jcdavis131/hatch-sota-starter/main/bundles-template/manifest.json -o ~/workspace/bundles/manifest.json || echo '{"packs_count":11,"agents":13}'
 
-# 4) Seed 3 triggers so resolver works immediately
+# 4) Seed 3 triggers
 acne add --name "Alex Rivera" --email alex@studio.com --trigger "my designer" --role designer --confidence 0.88
 acne add --name "Jordan Case" --trigger "my eng lead" --role eng
 acne resolve "my designer" # -> Alex Rivera 92%
 ```
 
-**New Agent Boot (what every new Hatch agent does):**
+**New Agent Boot (what every new agent runtime does):**
 ```python
 from pathlib import Path
 from acne import ContactsHub
-from acne.integrations.hatch_adapter import get_hatch_tools
+# generic runtime tools — works across adapters
+from acne.integrations import get_runtime_tools
+# legacy alias still works: from acne.integrations.hatch_adapter import get_hatch_tools
 
 hub = ContactsHub(base=Path.home() / "workspace" / "bundles" / "memory" / "contacts_harness")
-tools = get_hatch_tools(hub=hub) # 8 native
+tools = get_runtime_tools(hub=hub) # 8 native tools
 # Before asking "who is that?" -> try contacts_resolve
 # After user says "X is my Y" -> contacts_add with trigger, conf 0.88 manual
-# On vague vague -> resolver exact 0.92 / partial 0.85 / word-overlap 0.7
 ```
 
-**System Map:**
-Publish yours like mine: https://agent.meta.ai/s/scout-harness-v3-3-system-map-so5nxb50aoxnc — OODA ring encircles memory lattice, MoMA 5 tiers, recovery 9 steps, pulse rail for hooks, sparkle canvas epic win.
-
 **Your promise as Scout:** Always on, even when app closed. Operator keeps watch. If something slips, that's on you. Polish + magic on big wins.
-
----
-
-*End prompt. After pasting, run `bundles/cli.sh --json harness agents list` to verify 13 agents live.*

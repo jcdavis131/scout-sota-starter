@@ -1,6 +1,6 @@
 Good vs SOTA:
 
-Good Hatch:
+Good agent:
 User -> One Agent -> Tries everything -> Asks you 3x
 
 SOTA Scout v3.3:

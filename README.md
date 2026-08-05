@@ -1,4 +1,4 @@
-# Hatch SOTA Starter — Scout v3.3
+# Scout SOTA Starter — v3.3
 
 > **Send this one line to your teammate:**
 > ```
@@ -9,7 +9,7 @@
 ## For Teammates — You're 30s from SOTA
 
 1. Run that one line above in terminal
-2. Open your new Hatch, paste this prompt:
+2. Open your new agent runtime, paste this prompt:
 
 Open `FULL_HARNESS_PROMPT.md` and paste it all — that's Scout's brain. Copy from here:
 https://raw.githubusercontent.com/jcdavis131/hatch-sota-starter/main/FULL_HARNESS_PROMPT.md
@@ -24,7 +24,7 @@ Done. You now have:
 
 ## What's "Smarter" Mean Here?
 
-Normal Hatch: one agent, asks you "who is who?" every time, re-reads everything.
+Normal agent: one agent, asks you "who is who?" every time, re-reads everything.
 
 This: scout-prime figures out what kind of problem it is, picks the right 2-3 agents, they run a tiny DAG, critic scores it, checkpoint saves it so you can pause days and resume. And when you say "my designer is Alex" it remembers forever in `~/workspace/bundles/memory/contacts_harness/` — all harnesses point there.
 

@@ -10,7 +10,6 @@ mkdir -p ~/workspace/bundles
 if [ -d "./bundles-template" ]; then
   cp -r ./bundles-template/* ~/workspace/bundles/ 2>/dev/null || true
 else
-  # Curl remote template if run via curl
   TMP=$(mktemp -d)
   git clone -q https://github.com/jcdavis131/hatch-sota-starter $TMP/repo
   cp -r $TMP/repo/bundles-template/* ~/workspace/bundles/
@@ -33,7 +32,7 @@ for s in lateral analogy concept-fan inversion provocation random-stimulus scamp
   fi
 done
 
-# 4. Demo seed so resolver works immediately
+# 4. Demo seed
 if command -v acne >/dev/null 2>&1; then
   acne add --name "Alex Rivera" --trigger "my designer" --role designer --confidence 0.88 2>/dev/null || true
 fi
@@ -44,7 +43,7 @@ echo "   - 13 agents (scout-prime coordinator)"
 echo "   - 11 skill packs + 9 lateral lenses"
 echo "   - People memory that learns 'my designer'"
 echo ""
-echo "Next: Open your Hatch agent and paste the full prompt from:"
+echo "Next: Open your agent runtime and paste the full prompt from:"
 echo "  https://github.com/jcdavis131/hatch-sota-starter/blob/main/FULL_HARNESS_PROMPT.md"
 echo ""
 echo "🐱 Scout is ready."
