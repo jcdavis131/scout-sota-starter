@@ -1,34 +1,39 @@
-# Scout SOTA Starter — v3.3
+# Scout SOTA Starter — v4 Lean (Hill-Climbed)
 
-> **Send this one line to your teammate:**
-> ```
-> curl -fsSL https://raw.githubusercontent.com/jcdavis131/scout-sota-starter/main/scripts/install.sh | bash
-> ```
-> 30 seconds later they're SOTA.
+> **Peer feedback was right.** The old v3.3 built parallel systems that duplicated what your runtime already does well. This v4 keeps only what adds real value.
 
-## For Teammates — You're 30s from SOTA
+### Send your teammate this:
+```bash
+git clone https://github.com/jcdavis131/scout-sota-starter ~/workspace/scout-lean
+# open FULL_HARNESS_PROMPT_LEAN.md and paste it
+```
 
-1. Run that one line above in terminal
-2. Open your new agent runtime, paste this prompt:
+### What's actually in Lean?
 
-Open `FULL_HARNESS_PROMPT.md` and paste it all — that's Scout's brain. Copy from here:
-https://raw.githubusercontent.com/jcdavis131/scout-sota-starter/main/FULL_HARNESS_PROMPT.md
+**Keeps:**
+- OODA + Recovery ladder (retry → patch → replan → escalate) — what good agents already do, now explicit
+- Simple router: direct / 1 researcher / coordinator+workers — not a fake 384-d classifier
+- 9 lateral thinking lenses (SCAMPER, Six Hats, Inversion, etc.) — the one genuinely new piece worth keeping
 
-3. Say `acne resolve "my designer"` — if it says Alex Rivera, you're live.
+**Removes:**
+- 13 markdown "agents" that were just prompt templates — use real subagents when you actually need them
+- 5-layer token cache theatre — rely on file + memory cache you already have
+- Parallel JSONL memory graph that conflicts with native MEMORY.md + people pages + device contacts
+- Aggressive 90s Gmail polling — now 15m heartbeat, respectful
+- 7k mandatory prompt — now <800 byte core, skills loaded on demand
 
-Done. You now have:
-- 13 agents that actually talk to each other (not 13 copies of same chat)
-- Memory that learns "my X is Y" once and works everywhere
-- 9 thinking lenses that kick in when you're stuck
-- Cheap cache so second run costs almost nothing
+### Honest Trade
 
-## What's "Smarter" Mean Here?
+Old: SOTA by infrastructure diagrams.
+New: SOTA by staying lean and complementing native system.
 
-Normal agent: one agent, asks you "who is who?" every time, re-reads everything.
+If you want the typed graph (ACNE) for "my designer authored Q4" with provenance edges, it's still there as *optional* — it writes back into MEMORY.md, doesn't replace it.
 
-This: scout-prime figures out what kind of problem it is, picks the right 2-3 agents, they run a tiny DAG, critic scores it, checkpoint saves it so you can pause days and resume. And when you say "my designer is Alex" it remembers forever in `~/workspace/bundles/memory/contacts_harness/` — all harnesses point there.
+### Files
 
-See `bundle-diagram.md` if you like pictures, or just trust the 30s install.
+- `FULL_HARNESS_PROMPT_LEAN.md` — **use this now** (peer-reviewed, lean)
+- `FULL_HARNESS_PROMPT.md` — legacy v3.3 full (kept for reference)
+- `bundles-template/` — legacy templates, now optional
+- `scripts/install.sh` — 30s full install, still works if you want it
 
----
-Full docs & system map in `FULL_HARNESS_PROMPT.md` — MIT 2026 Cameron + Scout
+MIT 2026 Cameron + Scout — built from real peer critique.
