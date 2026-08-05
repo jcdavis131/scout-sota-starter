@@ -1,39 +1,54 @@
-# Scout SOTA Starter — v4 Lean (Hill-Climbed)
+# Scout SOTA Starter — v5 Prime (Truly Great)
 
-> **Peer feedback was right.** The old v3.3 built parallel systems that duplicated what your runtime already does well. This v4 keeps only what adds real value.
+> **Peer critique was right about v3.3. v4 fixed it. v5 is the step change above basic.**
 
-### Send your teammate this:
+Basic harness: one agent, asks "who's who?" every time, forgets how it solved Monday by Thursday, loops on same search.
+
+v5 Prime adds 4 things basic doesn't have, in ~900 bytes core, zero deps:
+
+1. **Mission Log** — `workspace/.scout/missions/<id>/timeline.jsonl` — pause Monday, resume Thursday, auditable receipts
+2. **Stuck Detector + Lens Picker** — detects loops/failures/confidence<0.4, then reads ONE lateral lens (SCAMPER, Six Hats, Inversion…) with honest abandon list
+3. **People Resolver Write-Back** — one clarifying Q max, then writes trigger to MEMORY.md so "my designer" resolves forever in <50ms
+4. **Verifier With Budget** — score 1-10, fix once if <8 and improved, else ship — max 2 loops, no theatre
+
+### For Teammates — 10 sec:
+
 ```bash
 git clone https://github.com/jcdavis131/scout-sota-starter ~/workspace/scout-lean
-# open FULL_HARNESS_PROMPT_LEAN.md and paste it
+# paste this file into new runtime:
+# FULL_HARNESS_PROMPT_V5.md
 ```
 
-### What's actually in Lean?
+That's it. No `pip install` unless you want typed graph.
 
-**Keeps:**
-- OODA + Recovery ladder (retry → patch → replan → escalate) — what good agents already do, now explicit
-- Simple router: direct / 1 researcher / coordinator+workers — not a fake 384-d classifier
-- 9 lateral thinking lenses (SCAMPER, Six Hats, Inversion, etc.) — the one genuinely new piece worth keeping
+### What's Different From Basic?
 
-**Removes:**
-- 13 markdown "agents" that were just prompt templates — use real subagents when you actually need them
-- 5-layer token cache theatre — rely on file + memory cache you already have
-- Parallel JSONL memory graph that conflicts with native MEMORY.md + people pages + device contacts
-- Aggressive 90s Gmail polling — now 15m heartbeat, respectful
-- 7k mandatory prompt — now <800 byte core, skills loaded on demand
+Basic: does task, forgets.
+v5: logs 1 line per tool batch to timeline, so next agent knows past.
 
-### Honest Trade
+Basic: loops on same failing search.
+v5: fires stuck signal → picks inversion/provocation/analogy, shows what it abandoned, diverges briefly.
 
-Old: SOTA by infrastructure diagrams.
-New: SOTA by staying lean and complementing native system.
+Basic: "who is your designer?" again and again.
+v5: asks once, writes `- Alex Rivera is my designer — trigger "my designer" confidence 0.88 source manual` to MEMORY.md, never asks again.
 
-If you want the typed graph (ACNE) for "my designer authored Q4" with provenance edges, it's still there as *optional* — it writes back into MEMORY.md, doesn't replace it.
+Basic: ships first draft.
+v5: checks acceptance + polish, scores, fixes biggest gap once if needed.
 
 ### Files
 
-- `FULL_HARNESS_PROMPT_LEAN.md` — **use this now** (peer-reviewed, lean)
-- `FULL_HARNESS_PROMPT.md` — legacy v3.3 full (kept for reference)
-- `bundles-template/` — legacy templates, now optional
-- `scripts/install.sh` — 30s full install, still works if you want it
+- `FULL_HARNESS_PROMPT_V5.md` — **USE THIS NOW** — v5 Prime (900 bytes core, step change)
+- `FULL_HARNESS_PROMPT_LEAN.md` — v4 Lean (still good, lighter)
+- `FULL_HARNESS_PROMPT.md` — v3.3 legacy (for reference)
+- `extras/acne.md` — optional typed graph, opt-in only, writes back into native memory
+- `bundles/skills/lateral/README.md` — 9 lenses, load on demand
 
-MIT 2026 Cameron + Scout — built from real peer critique.
+### Lean Means No More:
+
+- No 13 fake agents — spawn real subagents only when DAG>3 nodes
+- No fake 384-d classifier — 3-line router
+- No parallel JSONL graph replacing native
+- No 90s Gmail polling
+- No mandatory 7k prompt
+
+MIT 2026 Cameron + Scout — hill-climbed from peer critique into step change.
