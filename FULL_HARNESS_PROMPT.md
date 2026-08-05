@@ -97,7 +97,7 @@ for s in lateral analogy concept-fan inversion provocation random-stimulus scamp
 done
 
 # 3) Manifest seed
-curl -fsSL https://raw.githubusercontent.com/jcdavis131/hatch-sota-starter/main/bundles-template/manifest.json -o ~/workspace/bundles/manifest.json || echo '{"packs_count":11,"agents":13}'
+curl -fsSL https://raw.githubusercontent.com/jcdavis131/scout-sota-starter/main/bundles-template/manifest.json -o ~/workspace/bundles/manifest.json || echo '{"packs_count":11,"agents":13}'
 
 # 4) Seed 3 triggers
 acne add --name "Alex Rivera" --email alex@studio.com --trigger "my designer" --role designer --confidence 0.88
@@ -111,7 +111,7 @@ from pathlib import Path
 from acne import ContactsHub
 # generic runtime tools — works across adapters
 from acne.integrations import get_runtime_tools
-# legacy alias still works: from acne.integrations.hatch_adapter import get_hatch_tools
+# legacy alias still works: from acne.integrations.runtime_adapter import get_runtime_tools
 
 hub = ContactsHub(base=Path.home() / "workspace" / "bundles" / "memory" / "contacts_harness")
 tools = get_runtime_tools(hub=hub) # 8 native tools

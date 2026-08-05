@@ -2,7 +2,7 @@
 
 > **Send this one line to your teammate:**
 > ```
-> curl -fsSL https://raw.githubusercontent.com/jcdavis131/hatch-sota-starter/main/scripts/install.sh | bash
+> curl -fsSL https://raw.githubusercontent.com/jcdavis131/scout-sota-starter/main/scripts/install.sh | bash
 > ```
 > 30 seconds later they're SOTA.
 
@@ -12,7 +12,7 @@
 2. Open your new agent runtime, paste this prompt:
 
 Open `FULL_HARNESS_PROMPT.md` and paste it all — that's Scout's brain. Copy from here:
-https://raw.githubusercontent.com/jcdavis131/hatch-sota-starter/main/FULL_HARNESS_PROMPT.md
+https://raw.githubusercontent.com/jcdavis131/scout-sota-starter/main/FULL_HARNESS_PROMPT.md
 
 3. Say `acne resolve "my designer"` — if it says Alex Rivera, you're live.
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 # Scout v3.3 SOTA — One-line installer
-# Usage: curl -fsSL https://raw.githubusercontent.com/jcdavis131/hatch-sota-starter/main/scripts/install.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/jcdavis131/scout-sota-starter/main/scripts/install.sh | bash
 
 echo "🐱✨ Scout v3.3 SOTA — installing..."
 
@@ -11,7 +11,7 @@ if [ -d "./bundles-template" ]; then
   cp -r ./bundles-template/* ~/workspace/bundles/ 2>/dev/null || true
 else
   TMP=$(mktemp -d)
-  git clone -q https://github.com/jcdavis131/hatch-sota-starter $TMP/repo
+  git clone -q https://github.com/jcdavis131/scout-sota-starter $TMP/repo
   cp -r $TMP/repo/bundles-template/* ~/workspace/bundles/
   rm -rf $TMP
 fi
@@ -44,6 +44,6 @@ echo "   - 11 skill packs + 9 lateral lenses"
 echo "   - People memory that learns 'my designer'"
 echo ""
 echo "Next: Open your agent runtime and paste the full prompt from:"
-echo "  https://github.com/jcdavis131/hatch-sota-starter/blob/main/FULL_HARNESS_PROMPT.md"
+echo "  https://github.com/jcdavis131/scout-sota-starter/blob/main/FULL_HARNESS_PROMPT.md"
 echo ""
 echo "🐱 Scout is ready."
