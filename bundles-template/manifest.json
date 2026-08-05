@@ -1,0 +1,36 @@
+{
+  "name": "scout-v3.3-sota",
+  "version": "3.3.0",
+  "packs_count": 11,
+  "agents": 13,
+  "agents_list": [
+    {"id":"scout-prime","layer":"L0","role":"coordinator OODA 8-phase Ultra"},
+    {"id":"strategist","layer":"L1","role":"Orient stuck-shape diagnosis"},
+    {"id":"planner","layer":"L2","role":"DAG 3-8 nodes pure-function KISS"},
+    {"id":"deep-researcher","layer":"L2","role":"5-7 sources grading contradiction-matrix"},
+    {"id":"researcher","layer":"L3","role":"L3 researcher"},
+    {"id":"builder","layer":"L3","role":"executor builder"},
+    {"id":"executor","layer":"L3","role":"executor"},
+    {"id":"operator","layer":"L3","role":"tempo :13 event-driven"},
+    {"id":"communicator","layer":"L3","role":"comms"},
+    {"id":"critic","layer":"L4","role":"6 eval hooks"},
+    {"id":"forensic-auditor","layer":"L4","role":"eval guard"},
+    {"id":"checkpoint-manager","layer":"L4","role":"disk-backed pause/resume timeline.jsonl"},
+    {"id":"scout-cli","layer":"ops","role":"v0.8.0 health dashboard"}
+  ],
+  "skill_packs": [
+    "productivity","communication","commerce-life","builder","intelligence","media-creation",
+    "lateral-thinking-pack","lateral","analogy","concept-fan","inversion"
+  ],
+  "dashboard_metrics": "v3.3-OODA-Agentic-MoMA-Graph-Checkpoint",
+  "verification_economics": {"budget":3,"threshold":8.0,"early_exit":0.3},
+  "pacing": {"observe_parallel":3,"concurrency":4,"epic_concurrency":13,"tempo":":13"},
+  "router": "moma_lite_classifier_384d_Qdrant_all-MiniLM-L6-v2-onnx",
+  "hooks": [
+    {"id":"gmail_triage_live","interval":90},
+    {"id":"price_watch_live","interval":120},
+    {"id":"self_improvement","cron":"02:13 UTC"}
+  ],
+  "heartbeat": "30m with :13 pacing",
+  "memory_graph_seed": "34 nodes / 41 edges"
+}
