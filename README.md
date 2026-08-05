@@ -1,46 +1,34 @@
 # Hatch SOTA Starter — Scout v3.3
 
-One-link clone that turns a good Hatch agent into Scout-class SOTA.
+> **Send this one line to your teammate:**
+> ```
+> curl -fsSL https://raw.githubusercontent.com/jcdavis131/hatch-sota-starter/main/scripts/install.sh | bash
+> ```
+> 30 seconds later they're SOTA.
 
-**Cameron -> Team:** Share this link: `https://github.com/jcdavis131/hatch-sota-starter`
+## For Teammates — You're 30s from SOTA
 
-## What you get
-- 13 agents L0-L4 (scout-prime OODA Ultra, strategist, planner DAG 3-8, deep-researcher, researcher, builder/executor, operator, communicator, critic, forensic-auditor, checkpoint-manager, scout-cli)
-- 11 skill packs + 9 lateral-thinking lenses (daniium/lateral-thinking MIT)
-- MoMA 5-tier classifier 384-d routing, pacing filter :13, verification economics budget 3 / threshold 8.0 / early-exit 0.3
-- Checkpoint timeline.jsonl disk-backed pause/resume
-- ACNE TLPG local-first people memory + 5-layer token-cache (81-87% smaller)
-- Live hooks: gmail_triage 90s, price_watch 120s, self-improvement 02:13 UTC, 30m heartbeat
-- Memory graph 34n/41e seed
+1. Run that one line above in terminal
+2. Open your new Hatch, paste this prompt:
 
-## Quick Start (5 min)
+Open `FULL_HARNESS_PROMPT.md` and paste it all — that's Scout's brain. Copy from here:
+https://raw.githubusercontent.com/jcdavis131/hatch-sota-starter/main/FULL_HARNESS_PROMPT.md
 
-```bash
-git clone https://github.com/jcdavis131/hatch-sota-starter ~/workspace/bundles-src
-cp -r ~/workspace/bundles-src/bundles-template ~/workspace/bundles
-cat ~/workspace/bundles-src/FULL_HARNESS_PROMPT.md | pbcopy # or open it
+3. Say `acne resolve "my designer"` — if it says Alex Rivera, you're live.
 
-# People memory
-cd ~/workspace && git clone https://github.com/jcdavis131/acne acne
-cd acne && pip install -e . && pytest -q
+Done. You now have:
+- 13 agents that actually talk to each other (not 13 copies of same chat)
+- Memory that learns "my X is Y" once and works everywhere
+- 9 thinking lenses that kick in when you're stuck
+- Cheap cache so second run costs almost nothing
 
-# Thinking lenses
-mkdir -p ~/workspace/bundles/skills
-for s in lateral analogy concept-fan inversion provocation random-stimulus scamper six-hats worst-idea; do
-  curl -fsSL https://raw.githubusercontent.com/danium/lateral-thinking/main/skills/$s/SKILL.md -o ~/workspace/bundles/skills/$s.md
-done
+## What's "Smarter" Mean Here?
 
-# Seed triggers
-acne add --name "Alex Rivera" --trigger "my designer" --role designer --confidence 0.88
-acne resolve "my designer"
-```
+Normal Hatch: one agent, asks you "who is who?" every time, re-reads everything.
 
-Then paste the contents of `FULL_HARNESS_PROMPT.md` into your new Hatch agent on first boot.
+This: scout-prime figures out what kind of problem it is, picks the right 2-3 agents, they run a tiny DAG, critic scores it, checkpoint saves it so you can pause days and resume. And when you say "my designer is Alex" it remembers forever in `~/workspace/bundles/memory/contacts_harness/` — all harnesses point there.
 
-## Full Prompt
-See `FULL_HARNESS_PROMPT.md` (6958 bytes) — that's the master prompt.
+See `bundle-diagram.md` if you like pictures, or just trust the 30s install.
 
-## System Map Reference
-https://agent.meta.ai/s/scout-harness-v3-3-system-map-so5nxb50aoxnc
-
-MIT 2026 Cameron Davis + Scout
+---
+Full docs & system map in `FULL_HARNESS_PROMPT.md` — MIT 2026 Cameron + Scout
