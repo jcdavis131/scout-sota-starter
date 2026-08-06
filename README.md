@@ -52,3 +52,17 @@ v5: checks acceptance + polish, scores, fixes biggest gap once if needed.
 - No mandatory 7k prompt
 
 MIT 2026 Cameron + Scout — hill-climbed from peer critique into step change.
+
+## v0.3.0 Scout v5 Prime Deep Polish (Lane 2 2026-08-06)
+
+- Spec 1005 lines `docs/SCOUT_V5_PRIME_DEEP_SPEC.md` — 4 real additions complement native runtime, not 13 agents theatre:
+  - Mission Log 10 lines code `workspace/.scout/missions/<id>/timeline.jsonl` each line JSON t/agent/action/lat_ms/tokens/status — rotate >500 — you can cat timeline|tail, resume days later, show receipts without re-doing
+  - Stuck Detector triggers same tool 2× / 2 failures / search 0 / confidence<0.4 / user "hmm,stuck,not quite,meh" → ONE lateral lens only 9 lenses SCAMPER/Six Hats/Inversion/Provocation/Random Stimulus/Analogy/Concept Fan/Lateral/Worst Idea MIT danium/lateral-thinking — honest mechanic show abandonment
+  - People Resolver write-back One clarifying Q max then never ask again — memory_search([query,trigger]) >0.85 hit → device contacts → ask once → append MEMORY.md `- Alex Rivera <alex@studio.com> is my designer — trigger "my designer" confidence 0.88 source manual 2026-08-05` + extras/acne.md opted `acne add --trigger` typed edge — next time 0.92 <50ms no LLM
+  - Verifier budget score 1-10 max 2 loops Acceptance does output match user asked? Polish would you push publicly? typos missing links fake URLs Score 1-10 if <8 and improved >0.3 and tries<2 fix one biggest else ship
+- What Basic Runtime Does Well vs Missing — memory_search+MEMORY.md+people pages+device contacts+spawn subagents+hooks/cron/heartbeat+you ask it does — missing mission log, stuck detector, person resolver write-back, verifier — v5 fixes just those
+- Explicitly Do NOT Build — no 13 markdown agents pretending persistent, no 384-d Qdrant classifier 3-line heuristic router direct/1 researcher/coordinator+workers, no 5-layer cache diagram rely file mtime+memory_search cache, no parallel JSONL contacts graph replacing native write back into native, no 90s Gmail polling use heartbeat 15m or on-demand, no 7k prompt core stays <900 bytes
+- Boot Sequence Observe memory_search+list files if needed, Orient detect stuck signals, Decide lightest path + does this need mission log?, Act do it, append 1 line to timeline, resolve people with write-back, verify max 2 loops, Extras only if opted read `extras/acne.md` typed graph
+- Folder Layout lean `workspace/scout-lean` `.scout/missions/<mission-id>/timeline.jsonl` `bundles/skills/lateral/9 md` `extras/acne.md` — No pip No agents No theatre Just four fixes basic doesn't have each saves real time — Scout v5 Prime truly great means resume Thursday where left off Monday, never ask "who's your designer?" twice, diverge only when stuck, ship second draft when first 7/10
+- Canonical onboarding https://arxiviq.com/starter serves Scout v5 Prime / FULL_HARNESS_PROMPT_V5.md — arxiviq.com domain stays tied to Dottie repo — Hatch-private branding scrubbed Scout runtime / agent runtime zero Hatch mentions — 7/7 checkpoint OK, no torch, branch-per-task, candidate.json first, triple-write 7-field.
+
