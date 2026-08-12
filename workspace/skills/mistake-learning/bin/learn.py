@@ -1,10 +1,24 @@
 #!/usr/bin/env python3
 import argparse, json, sys, time, pathlib, hashlib, datetime
-ROOT = pathlib.Path(__file__).resolve().parents[2]
-LESSON_DIR = ROOT / "lessons" if (ROOT/"lessons").parent.exists() else pathlib.Path.home()/ "workspace"/"dottie"/"lessons"
+
+def _find_root(start):
+    """Walk up from the script location to find the project root: the
+    nearest ancestor that is a git repo, or that already has both a
+    lessons/ and docs/ dir scaffolded. Returns None if neither is found."""
+    p = start
+    for _ in range(8):
+        if (p / ".git").exists() or ((p / "lessons").is_dir() and (p / "docs").is_dir()):
+            return p
+        if p.parent == p:
+            break
+        p = p.parent
+    return None
+
+ROOT = _find_root(pathlib.Path(__file__).resolve().parent) or (pathlib.Path.home() / "workspace" / "dottie")
+LESSON_DIR = ROOT / "lessons"
 LEDGER = LESSON_DIR / "ledger.jsonl"
-DOC = pathlib.Path.home()/ "workspace"/"dottie"/"docs"/"LESSONS.md"
-TIMELINE_GLOB = pathlib.Path.home()/ "workspace"/"dottie"/"bundles"/"ultra"/"runs"
+DOC = ROOT / "docs" / "LESSONS.md"
+TIMELINE_GLOB = ROOT / "bundles" / "ultra" / "runs"
 
 def _now_id():
     ts = datetime.datetime.now(datetime.timezone.utc).strftime("%Y%m%dT%H%M%SZ")
