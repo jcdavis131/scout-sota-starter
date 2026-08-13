@@ -76,10 +76,14 @@ def apply(min_conf=0.7):
 
 def list_recent(limit=20):
     if not LEDGER.exists(): print("no lessons yet — clean slate ✨"); return
-    for l in LEDGER.read_text().splitlines()[-limit:]:
-        try:
-            j=json.loads(l); print(f"{j['when'][:19]} {j['id']} [{j['errorClass']}] {j['what'][:60]} → {j['lesson'][:60]} (c={j['confidence']})")
-        except: pass
+    lines=[l for l in LEDGER.read_text().splitlines() if l.strip()][-limit:]
+    if not lines: print("no lessons yet — clean slate ✨"); return
+    for l in lines:
+        try: j=json.loads(l)
+        except Exception: continue
+        when=str(j.get("when","?"))[:19]; lid=j.get("id","?"); ec=j.get("errorClass","n/a")
+        what=str(j.get("what",""))[:60]; lesson=str(j.get("lesson",""))[:60]; conf=j.get("confidence","?")
+        print(f"{when} {lid} [{ec}] {what} → {lesson} (c={conf})")
 
 if __name__=="__main__":
     ap=argparse.ArgumentParser(); sub=ap.add_subparsers(dest="cmd", required=True)
