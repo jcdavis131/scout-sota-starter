@@ -1,3 +1,5 @@
+> **Superseded:** Scout live work is in [`jcdavis131/dottie`](https://github.com/jcdavis131/dottie) (`apps/scout-cli`, missions/SOTA docs). This starter is historical.
+
 # Scout SOTA Starter — v5 Prime (Truly Great)
 
 > **Peer critique was right about v3.3. v4 fixed it. v5 is the step change above basic.**
